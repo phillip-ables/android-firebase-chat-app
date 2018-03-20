@@ -12,10 +12,10 @@
     tools:context="com.example.techtron.newfireapplication.MainActivity">
 
     <EditText
-        android:id="@+id/editTextMessage"
+        android:id="@+id/editTextName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Enter Message"/>
+        android:hint="Enter Name"/>
 
     <Button
         android:id="@+id/buttonSend"

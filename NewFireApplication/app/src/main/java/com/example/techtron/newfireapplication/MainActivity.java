@@ -25,27 +25,12 @@ public class MainActivity extends AppCompatActivity {
         //Retrieve an instance of your database using getInstance()
         // and reference the location you want to write to.
         database = FirebaseDatabase.getInstance();
-        myRef = database.getReference("MyMessage");
 
-        myRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                String value = dataSnapshot.getValue(String.class);
-                TextView textView = (TextView) findViewById(R.id.textView);
-                textView.setText(value);
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
     }
 
     public void sendMessage(View view){
-        EditText editTextMessage = (EditText) findViewById(R.id.editTextMessage);
-        String message = editTextMessage.getText().toString();
-
-        myRef.setValue(message);
+        EditText editTextName = (EditText) findViewById(R.id.editTextName);
+        myRef = database.getReference("Users");
+        myRef.child("Name").setValue(editTextName.getText().toString());
     }
 }
