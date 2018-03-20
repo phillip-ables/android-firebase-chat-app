@@ -21,17 +21,21 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-        //Retrieve an instance of your database using getInstance()
-        // and reference the location you want to write to.
         database = FirebaseDatabase.getInstance();
-
     }
 
     public void sendMessage(View view){
-        EditText editTextName = (EditText) findViewById(R.id.editTextName);
-        myRef = database.getReference("Users");
-        myRef.child("Name").push().setValue(editTextName.getText().toString());
 
+        EditText editTextName = (EditText) findViewById(R.id.editTextName);
+        EditText editTextContact = (EditText) findViewById(R.id.editTextContact);
+
+        myRef = database.getReference("Users");
+        myRef.child("Name").setValue(editTextName.getText().toString());
+
+        String child = editTextName.getText().toString();
+        myRef = database.getReference("Users").child(child);
+
+        myRef.child("Name").setValue(editTextName.getText().toString());
+        myRef.child("Contact").setValue(editTextContact.getText().toString());
     }
 }
