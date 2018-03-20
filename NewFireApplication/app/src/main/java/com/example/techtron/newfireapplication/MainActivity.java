@@ -32,5 +32,6 @@ public class MainActivity extends AppCompatActivity {
         EditText editTextName = (EditText) findViewById(R.id.editTextName);
         myRef = database.getReference("Users");
         myRef.child("Name").push().setValue(editTextName.getText().toString());
+
     }
 }
