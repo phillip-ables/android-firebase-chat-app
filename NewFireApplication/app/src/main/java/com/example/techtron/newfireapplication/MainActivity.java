@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -30,14 +31,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 String value = dataSnapshot.getValue(String.class);
-
+                TextView textView = (TextView) findViewById(R.id.textView);
+                textView.setText(value);
             }
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
 
             }
-        })
+        });
     }
 
     public void sendMessage(View view){
