@@ -24,8 +24,8 @@ public class MainActivity extends AppCompatActivity {
 
         //Retrieve an instance of your database using getInstance()
         // and reference the location you want to write to.
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("MyMessage");
+        database = FirebaseDatabase.getInstance();
+        myRef = database.getReference("MyMessage");
 
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
