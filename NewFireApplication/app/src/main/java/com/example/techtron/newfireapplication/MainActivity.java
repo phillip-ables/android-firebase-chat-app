@@ -30,7 +30,12 @@ public class MainActivity extends AppCompatActivity {
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                
+                Map<String, String> map = (Map<String,String>) dataSnapshot.getValue();
+                String name = map.get("Name");
+                String contact = map.get("Contact");
+
+                Log.v("Name",name);
+                Log.v("Contact",contact);
             }
 
             @Override
