@@ -11,31 +11,10 @@
     android:paddingTop="16dp"
     tools:context="com.example.techtron.newfireapplication.MainActivity">
 
-    <EditText
-        android:id="@+id/editTextName"
+    <ListView
+        android:id="@+id/listView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Enter Name"/>
+        android:layout_height="match_parent">
 
-    <EditText
-        android:id="@+id/editTextContact"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Enter Contact"/>
-
-    <Button
-        android:id="@+id/buttonSend"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Send"
-        android:onClick="sendMessage"/>
-    
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="demo"
-        android:textAlignment="center"
-        android:layout_marginTop="15dp"/>
-    
+    </ListView>
 </LinearLayout>
