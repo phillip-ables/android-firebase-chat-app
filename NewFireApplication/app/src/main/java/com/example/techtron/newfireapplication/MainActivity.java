@@ -24,6 +24,8 @@ import java.util.Map;
 
 public class MainActivity extends AppCompatActivity{
     private FirebaseAuth mAuth;
+    private EditText editTextEmail, editTextPassword;
+    private String email, password;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,5 +37,11 @@ public class MainActivity extends AppCompatActivity{
     }
 
     private void sendRegistration() {
+        editTextEmail = (EditText) findViewById(R.id.editTextEmail);
+        editTextPassword = (EditText) findViewById(R.id.editTextPassword);
+
+        email = editTextEmail.getText().toString();
+
+        Toast.makeText(this, email, Toast.LENGTH_SHORT).show();
     }
 }
