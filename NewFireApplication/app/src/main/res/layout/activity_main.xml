@@ -31,11 +31,11 @@
             android:inputType="textPassword"/>
 
         <Button
+            android:id="@+id/buttonRegister"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="Register"
-            android:onClick="sendRegistration"
             android:layout_margin="20dp"/>
     </LinearLayout>
 </RelativeLayout>

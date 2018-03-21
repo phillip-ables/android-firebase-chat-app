@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -26,6 +27,8 @@ public class MainActivity extends AppCompatActivity{
     private FirebaseAuth mAuth;
     private EditText editTextEmail, editTextPassword;
     private String email, password;
+    public Button buttonRegister;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,15 +36,27 @@ public class MainActivity extends AppCompatActivity{
         setContentView(R.layout.activity_main);
 
         mAuth = FirebaseAuth.getInstance();
+        buttonRegister = (Button) findViewById(R.id.buttonRegister);
+
+        buttonRegister.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        sendRegistration();
+                    }
+                }
+        );
 
     }
 
     private void sendRegistration() {
+        Toast.makeText(this, "Rockets, it worked!", Toast.LENGTH_SHORT).show();
+
         editTextEmail = (EditText) findViewById(R.id.editTextEmail);
         editTextPassword = (EditText) findViewById(R.id.editTextPassword);
 
         email = editTextEmail.getText().toString();
 
-        Toast.makeText(this, email, Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Rockets, it worked!", Toast.LENGTH_SHORT).show();
     }
 }
