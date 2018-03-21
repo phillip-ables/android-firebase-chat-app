@@ -23,12 +23,17 @@ import java.util.List;
 import java.util.Map;
 
 public class MainActivity extends AppCompatActivity{
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        mAuth = FirebaseAuth.getInstance();
+
     }
 
+    private void sendRegistration() {
+    }
 }
