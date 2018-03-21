@@ -72,6 +72,8 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+
+
     public void sendMessage(View view){
 //        EditText editTextName = (EditText) findViewById(R.id.editTextName);
 //        EditText editTextContact = (EditText) findViewById(R.id.editTextContact);
