@@ -1,5 +1,7 @@
 package com.example.techtron.newfireapplication;
 
+import android.content.DialogInterface;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -28,6 +30,7 @@ public class MainActivity extends AppCompatActivity{
     private EditText editTextEmail, editTextPassword;
     private String email, password;
     public Button buttonRegister;
+    public AlertDialog alertDialog;
 
 
     @Override
@@ -50,13 +53,42 @@ public class MainActivity extends AppCompatActivity{
     }
 
     private void sendRegistration() {
-        Toast.makeText(this, "Rockets, it worked!", Toast.LENGTH_SHORT).show();
-
         editTextEmail = (EditText) findViewById(R.id.editTextEmail);
         editTextPassword = (EditText) findViewById(R.id.editTextPassword);
 
         email = editTextEmail.getText().toString();
+        password = editTextPassword.getText().toString();
 
-        Toast.makeText(this, "Rockets, it worked!", Toast.LENGTH_SHORT).show();
+        if (email.length() < 1 ) {
+            Toast.makeText(this, "About to check value", Toast.LENGTH_SHORT).show();
+            alertDialog = new AlertDialog.Builder(MainActivity.this).create();
+            alertDialog.setTitle("Email Error:");
+            alertDialog.setMessage("Please Enter an Email Address");
+            alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    });
+            alertDialog.show();
+        }
+        else if (password.length() < 1 ) {
+            Toast.makeText(this, "About to check value", Toast.LENGTH_SHORT).show();
+            alertDialog = new AlertDialog.Builder(MainActivity.this).create();
+            alertDialog.setTitle("Password Error:");
+            alertDialog.setMessage("Please Enter an Password");
+            alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    });
+            alertDialog.show();
+        }
+        else{
+
+            Toast.makeText(this, email, Toast.LENGTH_SHORT).show();
+
+        }
     }
 }
