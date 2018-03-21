@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -30,31 +31,28 @@ public class MainActivity extends AppCompatActivity {
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                Map<String, String> map = (Map<String,String>) dataSnapshot.getValue();
+                Map<String,String> map = (Map<String,String>) dataSnapshot.getValue();
                 String name = map.get("Name");
                 String contact = map.get("Contact");
 
-                Log.v("Name",name);
-                Log.v("Contact",contact);
+                if(name != null && contact != null){
+                    Log.v("Name",name);
+                    Log.v("Contact",contact);
+                }
             }
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
 
             }
-        })
+        });d
+
     }
 
     public void sendMessage(View view){
-
         EditText editTextName = (EditText) findViewById(R.id.editTextName);
         EditText editTextContact = (EditText) findViewById(R.id.editTextContact);
-
-        myRef = database.getReference("Users");
-        myRef.child("Name").setValue(editTextName.getText().toString());
-
-        String child = editTextName.getText().toString();
-        myRef = database.getReference("Users").child(child);
+        myRef = database.getReference();
 
         myRef.child("Name").setValue(editTextName.getText().toString());
         myRef.child("Contact").setValue(editTextContact.getText().toString());
