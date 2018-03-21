@@ -55,7 +55,9 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onChildRemoved(DataSnapshot dataSnapshot) {
-
+                String value = dataSnapshot.getValue(String.class);
+                mUserName.remove(value);
+                arrayAdapter.notifyDataSetChanged();
             }
 
             @Override
