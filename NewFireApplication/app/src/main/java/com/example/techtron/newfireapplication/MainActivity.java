@@ -26,26 +26,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         database = FirebaseDatabase.getInstance();
-        myRef = database.getReference();
+        myRef = database.getReference("User");
 
-        myRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                Map<String,String> map = (Map<String,String>) dataSnapshot.getValue();
-                String name = map.get("Name");
-                String contact = map.get("Contact");
-
-                if(name != null && contact != null){
-                    Log.v("Name",name);
-                    Log.v("Contact",contact);
-                }
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });d
 
     }
 
