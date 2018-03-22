@@ -11,22 +11,20 @@
     android:layout_marginTop="16dp"
     tools:context="com.example.techtron.newfireapplication.NewActivity">
 
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Success"
-            android:gravity="center"
-            android:layout_centerVertical="true"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Upload Image"
+        android:layout_marginTop="62dp"
+        android:onClick="buttonImageUploadClicked"/>
 
     <Button
         android:id="@+id/buttonLogout"
         android:layout_marginTop="42dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView"
-        android:layout_centerHorizontal="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
         android:onClick="signOut"
         android:text="logout" />
 
