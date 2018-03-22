@@ -31,79 +31,14 @@ import java.util.List;
 import java.util.Map;
 
 public class MainActivity extends AppCompatActivity{
-    private FirebaseAuth mAuth;
-    private EditText editTextEmail, editTextPassword;
-    private String email, password;
-    public Button buttonRegister;
-    public AlertDialog alertDialog;
 
+    //01:12:00
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mAuth = FirebaseAuth.getInstance();
-        buttonRegister = (Button) findViewById(R.id.buttonRegister);
 
-        buttonRegister.setOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        sendRegistration();
-                    }
-                }
-        );
-
-    }
-
-    private void sendRegistration() {
-        editTextEmail = (EditText) findViewById(R.id.editTextEmail);
-        editTextPassword = (EditText) findViewById(R.id.editTextPassword);
-
-        email = editTextEmail.getText().toString();
-        password = editTextPassword.getText().toString();
-
-        if (email.length() < 1 ) {
-            Toast.makeText(this, "About to check value", Toast.LENGTH_SHORT).show();
-            alertDialog = new AlertDialog.Builder(MainActivity.this).create();
-            alertDialog.setTitle("Email Error:");
-            alertDialog.setMessage("Please Enter an Email Address");
-            alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
-                    new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
-                            dialog.dismiss();
-                        }
-                    });
-            alertDialog.show();
-        }
-        else if (password.length() < 1 ) {
-            Toast.makeText(this, "About to check value", Toast.LENGTH_SHORT).show();
-            alertDialog = new AlertDialog.Builder(MainActivity.this).create();
-            alertDialog.setTitle("Password Error:");
-            alertDialog.setMessage("Please Enter an Password");
-            alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
-                    new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
-                            dialog.dismiss();
-                        }
-                    });
-            alertDialog.show();
-        }
-        else{
-            mAuth.createUserWithEmailAndPassword(email, password)
-                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            if (task.isSuccessful()) {
-                                Toast.makeText(MainActivity.this, "You are now signed in!!", Toast.LENGTH_SHORT).show();
-                            } else {
-                                Toast.makeText(MainActivity.this, "Registration Failed :(", Toast.LENGTH_SHORT).show();
-                            }
-
-                        }
-                    });
-
-        }
     }
 }
