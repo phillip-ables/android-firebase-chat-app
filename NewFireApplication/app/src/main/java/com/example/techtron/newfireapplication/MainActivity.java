@@ -1,7 +1,9 @@
 package com.example.techtron.newfireapplication;
 
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.EditText;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -25,5 +27,14 @@ public class MainActivity extends AppCompatActivity{
 
         emailText = (EditText) findViewById(R.id.editTextEmail);
         passText = (EditText) findViewById(R.id.editTextPassword);
+
+        mAuth = FirebaseAuth.getInstance();
+
+        authStateListener = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                
+            }
+        }
     }
 }
