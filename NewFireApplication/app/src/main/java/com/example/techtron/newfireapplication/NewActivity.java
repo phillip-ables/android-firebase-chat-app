@@ -15,6 +15,7 @@ public class NewActivity extends AppCompatActivity {
     private FirebaseAuth.AuthStateListener authStateListener;
 
     private StorageReference storageReference;
+    private static final int GALLERY_INTENT = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +32,9 @@ public class NewActivity extends AppCompatActivity {
         startActivity(new Intent(NewActivity.this, MainActivity.class));
     }
 
-    void imageUploadClicked(){
-
+    public void imageUploadClicked(View v){
+        Intent intent = new Intent(Intent.ACTION_PICK);
+        intent.setType("image/*");
+        startActivityForResult(intent, GALLERY_INTENT);
     }
 }
