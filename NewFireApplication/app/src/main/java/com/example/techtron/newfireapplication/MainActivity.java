@@ -41,10 +41,15 @@ public class MainActivity extends AppCompatActivity{
         authStateListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                
+                if(firebaseAuth.getCurrentUser() != null){
+                    Intent intent = new Intent(MainActivity.this, NewActivity.class);
+                    startActivity(intent);
+                }
             }
         };
     }
+
+    
 
     public void loginButtonClicked(View v){
         email = editTextEmail.getText().toString();
