@@ -49,7 +49,11 @@ public class MainActivity extends AppCompatActivity{
         };
     }
 
-    
+    @Override
+    protected void onStart() {
+        super.onStart();
+        mAuth.addAuthStateListener(authStateListener);
+    }
 
     public void loginButtonClicked(View v){
         email = editTextEmail.getText().toString();
